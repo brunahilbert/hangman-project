@@ -1,7 +1,6 @@
 import inquirer from 'inquirer';
 import data from './data.js';
 
-const [words, state] = data;
 const [words, tips, state] = data;
 
 const guessedLetters = [];
@@ -34,6 +33,30 @@ const askForLetter = () => {
 
             console.log(getObscuredWord());
 
+            if (word.includes(guessedLetter)) {
+                const intersection = word
+                    .split('')
+                    .filter(letter => guessedLetters.includes(letter));
+
+                if (intersection.length === word.length) {
+                    console.log('🎉 Congrats! You won! 🎉');
+                } else {
+                    askForLetter();
+                }
+            } else {
+                guessesRemaining--;
+
+                console.log(state[7 - guessesRemaining]);
+                console.log(`You have ${guessesRemaining} guesses remaining.`);
+
+                if (guessesRemaining === 0) {
+                    console.log('🚨 GAME OVER!');
+                    console.log(`The word was: ${word}`)
+                } else {
+                    askForLetter();
+                }
+            }
+
         } else {
             console.log('Already guessed, try another letter.');
             askForLetter();
@@ -50,11 +73,11 @@ const getObscuredWord = () => {
         return '_';
     }).join('');
 
-    return `Your word is: ${obscuredWord}`;
+    return `The word is: ${obscuredWord}`;
 }
 
 console.log('Welcome to Hangman!');
-console.log('___________________');
+console.log('-------------------');
 console.log(`The tip is: ${tip}`);
 
 askForLetter();
