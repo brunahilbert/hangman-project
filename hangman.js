@@ -21,9 +21,9 @@ const askForLetter = () => {
         validate(value) {
             if (/^[A-Za-z]$/.test(value)) {
                 return true;
-            } else {
-                return false;
             }
+            console.log(' is NOT a letter!');
+            return false;
         }
     }]).then(input => {
         const guessedLetter = input.letter.toLowerCase();
