@@ -2,9 +2,12 @@ import inquirer from 'inquirer';
 import data from './data.js';
 
 const [words, state] = data;
+const [words, tips, state] = data;
 
 const guessedLetters = [];
 const word = words[Math.floor(Math.random() * words.length)];
+const wordIndex = words.indexOf(word);
+const tip = tips[wordIndex];
 let guessesRemaining = 7;
 
 const askForLetter = () => {
@@ -52,5 +55,6 @@ const getObscuredWord = () => {
 
 console.log('Welcome to Hangman!');
 console.log('___________________');
+console.log(`The tip is: ${tip}`);
 
 askForLetter();
