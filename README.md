@@ -1,16 +1,37 @@
-Inquirer is a tool that can help us create command-line user interfaces.
+# Hangman Game
 
-We will start off by asking for guesses for letters from the player. From here, the game’s state can branch into two ways. If all letters are guessed, the player wins the game. If there are no remaining guesses, the player loses.
+Welcome to the Hangman Game! This is a simple command-line Hangman game implemented in JavaScript using the `inquirer` library.
 
-On a deeper level, we will start off with a random word that needs to be guessed. We can have 10 wrong guesses before we lose the game. For each letter guessed, we want to reveal where the letter is positioned in the word, and how many letters the word has. We want to keep going until all letters are guessed correctly, or we run out of wrong guesses.
+## How to Play
 
-To summarize:
+1. Clone or download the repository to your local machine.
 
-We want to start off with a random word and 10 possible wrong guesses
-We want to ask for a letter, and we want to verify if the input is a letter
-We want to turn the guess into lowercase to make sure it matches the word that we store in lowercase
-If the letter has already been guessed, we want to ask for a new guess
-If the guess was right, we want to show the letter in the word
-If all letters are guessed, the player wins, otherwise we ask for a new guess
-If the guess was wrong, we reduce the number of remaining guesses
-If there are no more remaining guesses, we lose the game, otherwise, we can have another guess
+2. Open your terminal or command prompt and navigate to the project directory.
+
+3. Run the following command to install the required dependencies:
+
+	`npm install`
+
+4. Start the game by running the following command:
+
+	`node hangman.js`
+
+5. Follow the on-screen instructions to guess letters and try to uncover the hidden word. You have a limited number of guesses, so choose wisely!
+
+## How the Game Works
+
+1. The game selects a random word from a predefined list.
+
+2. The game displays the tip related to the chosen word.
+
+3. You need to guess individual letters of the word using your keyboard.
+
+4. Each incorrect guess will decrease your remaining guesses. You have a total of 7 guesses.
+
+5. If you correctly guess all the letters in the word, you win the game.
+
+6. If you run out of guesses before guessing the entire word, the game is over.
+
+7. After each guess, the game displays the obscured word, indicating the correctly guessed letters and placeholders for the unknown letters.
+
+**Enjoy the game and have fun guessing words!**
